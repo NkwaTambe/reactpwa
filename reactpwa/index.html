@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service worker</title>
+</head>
+<body>
+     <h1>hi</h1>
+
+
+     <!-- script to register service worker if present in the browser -->
+
+    <script>
+
+        if('ServiceWorker' in navigator)
+
+        {
+                navigator.serviceWorker.register('./sw.js',{scope:'/'})
+                .then((registration) => {
+                    console.log('service worker registered with scope:', registration.scope);
+                })
+
+                .catch((error) => {
+                    console.error('service worker registration failed:', error);
+                });
+                        
+        }else{
+            console.warn("service worker is not working")
+        }
+            </script>
+
+</body>
+
+</html>
